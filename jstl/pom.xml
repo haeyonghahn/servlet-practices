@@ -4,6 +4,7 @@
     <groupId>com.douzone</groupId>
     <artifactId>servlet-practices</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    
   </parent>
   <artifactId>jstl</artifactId>
   <packaging>war</packaging>
@@ -14,12 +15,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.46</version>
-		</dependency>
-
 		<!-- jstl -->
 		<dependency>
 			<groupId>jstl</groupId>
@@ -43,7 +38,7 @@
 	</dependencies>
 
 	<build>
-
+		<finalName>jstl</finalName>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<resources>
 			<resource>
@@ -55,7 +50,6 @@
 		</resources>
 
 		<plugins>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -83,7 +77,16 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
-
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<configuration>
+					<url>http://192.168.1.104:8080/manager/text</url>
+					<path>/jstl</path>
+					<username>admin</username>
+					<password>admin</password>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	
